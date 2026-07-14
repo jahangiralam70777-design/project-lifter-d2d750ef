@@ -436,8 +436,17 @@ const scheduleModeEnum = z.enum([
   "date_range",
   "weekdays",
 ]);
-const studyTargetEnum = z.enum(["mcq", "reading", "time", "custom"]);
+const studyTargetEnum = z.enum([
+  "mcq",
+  "reading",
+  "time",
+  "custom",
+  "study",
+  "review",
+  "exam",
+]);
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
+const clockTime = z.string().regex(/^\d{2}:\d{2}(:\d{2})?$/);
 
 const saveRoutineInput = z.object({
   id: uuid.optional(),
@@ -447,8 +456,8 @@ const saveRoutineInput = z.object({
   subject_id: nullableUuid,
   chapter_id: nullableUuid,
   task_type: taskTypeEnum.default("study"),
-  study_target: studyTargetEnum.default("time"),
-  estimated_minutes: z.number().int().min(5).max(24 * 60).default(60),
+  study_target: studyTargetEnum.default("study"),
+  estimated_minutes: z.number().int().min(1).max(24 * 60).default(60),
   priority: priorityEnum.default("medium"),
   default_status: statusEnum.default("pending"),
   due_date: isoDate.nullable().optional(),
@@ -458,9 +467,11 @@ const saveRoutineInput = z.object({
   weekdays: z.array(z.number().int().min(0).max(6)).max(7).default([]),
   start_date: isoDate,
   end_date: isoDate.nullable().optional(),
-  start_time: z.string().regex(/^\d{2}:\d{2}(:\d{2})?$/).default("09:00"),
+  start_time: clockTime.default("09:00"),
+  end_time: clockTime.nullable().optional(),
   is_active: z.boolean().optional(),
 });
+
 
 type SaveRoutineInput = z.infer<typeof saveRoutineInput>;
 
