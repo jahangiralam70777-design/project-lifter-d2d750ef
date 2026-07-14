@@ -51,12 +51,10 @@ export type CreateRoutinePayload = {
   level_code: string | null;
   subject_id: string | null;
   chapter_id: string | null;
-  task_title: string;
   task_type: "study" | "mcq" | "quiz" | "mock" | "revision" | "custom";
   study_target: "mcq" | "reading" | "time" | "custom";
   estimated_minutes: number;
   priority: "low" | "medium" | "high";
-  reminder_minutes: number | null;
   default_status: "pending" | "in_progress" | "completed";
   due_date: string | null;
   schedule_mode: ScheduleMode;
@@ -93,13 +91,10 @@ function defaults(): CreateRoutinePayload {
     description: null,
     level_code: null,
     subject_id: null,
-    chapter_id: null,
-    task_title: "",
     task_type: "study",
     study_target: "time",
     estimated_minutes: 60,
     priority: "medium",
-    reminder_minutes: null,
     default_status: "pending",
     due_date: null,
     schedule_mode: "daily",
@@ -109,6 +104,7 @@ function defaults(): CreateRoutinePayload {
     start_date: todayISO(),
     end_date: null,
     start_time: "09:00",
+    chapter_id: null,
   };
 }
 
@@ -142,7 +138,6 @@ export function CreateRoutineDialog({
         level_code: initial.level_code ?? null,
         subject_id: initial.subject_id ?? null,
         chapter_id: initial.chapter_id ?? null,
-        task_title: initial.task_title ?? initial.name ?? "",
         task_type:
           (initial.task_type as CreateRoutinePayload["task_type"]) ?? "study",
         study_target:
@@ -151,7 +146,6 @@ export function CreateRoutineDialog({
         estimated_minutes: initial.estimated_minutes ?? 60,
         priority:
           (initial.priority as CreateRoutinePayload["priority"]) ?? "medium",
-        reminder_minutes: initial.reminder_minutes ?? null,
         default_status:
           (initial.default_status as CreateRoutinePayload["default_status"]) ??
           "pending",
@@ -208,7 +202,7 @@ export function CreateRoutineDialog({
   });
 
   const canSubmit = useMemo(() => {
-    if (!form.name.trim() || !form.task_title.trim()) return false;
+    if (!form.name.trim()) return false;
     if (form.schedule_mode === "weekdays" && form.weekdays.length === 0)
       return false;
     if (form.schedule_mode === "date_range" && !form.end_date) return false;
@@ -218,7 +212,6 @@ export function CreateRoutineDialog({
   function submit() {
     setError(null);
     if (!form.name.trim()) return setError("Routine title is required.");
-    if (!form.task_title.trim()) return setError("Task name is required.");
     if (form.schedule_mode === "weekdays" && form.weekdays.length === 0)
       return setError("Pick at least one weekday.");
     if (form.schedule_mode === "date_range") {
@@ -344,15 +337,14 @@ export function CreateRoutineDialog({
           {/* Section 2 — Task settings */}
           <Section title="Task settings">
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <FormField
-                label="Task Name"
-                required
-                className="sm:col-span-2"
-              >
-                <Input
-                  value={form.task_title}
-                  onChange={(e) => set("task_title", e.target.value)}
-                  placeholder="e.g. Solve 30 MCQs"
+              <FormField label="Description" className="sm:col-span-2">
+                <Textarea
+                  rows={2}
+                  value={form.description ?? ""}
+                  onChange={(e) =>
+                    set("description", e.target.value ? e.target.value : null)
+                  }
+                  placeholder="Optional context or instructions"
                 />
               </FormField>
               <FormField label="Description" className="sm:col-span-2">
@@ -425,31 +417,6 @@ export function CreateRoutineDialog({
                     <SelectItem value="low">Low</SelectItem>
                     <SelectItem value="medium">Medium</SelectItem>
                     <SelectItem value="high">High</SelectItem>
-                  </SelectContent>
-                </Select>
-              </FormField>
-              <FormField label="Reminder">
-                <Select
-                  value={
-                    form.reminder_minutes == null
-                      ? "none"
-                      : String(form.reminder_minutes)
-                  }
-                  onValueChange={(v) =>
-                    set("reminder_minutes", v === "none" ? null : Number(v))
-                  }
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="No reminder" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="none">No reminder</SelectItem>
-                    <SelectItem value="0">At start time</SelectItem>
-                    <SelectItem value="5">5 min before</SelectItem>
-                    <SelectItem value="15">15 min before</SelectItem>
-                    <SelectItem value="30">30 min before</SelectItem>
-                    <SelectItem value="60">1 hour before</SelectItem>
-                    <SelectItem value="1440">1 day before</SelectItem>
                   </SelectContent>
                 </Select>
               </FormField>
