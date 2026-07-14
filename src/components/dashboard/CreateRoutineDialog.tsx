@@ -373,32 +373,32 @@ export function CreateRoutineDialog({
                   placeholder="Optional context or instructions"
                 />
               </FormField>
-              <FormField label="Description" className="sm:col-span-2">
-                <Textarea
-                  rows={2}
-                  value={form.description ?? ""}
-                  onChange={(e) =>
-                    set("description", e.target.value ? e.target.value : null)
-                  }
-                  placeholder="Optional context or instructions"
-                />
-              </FormField>
               <FormField label="Study Target">
                 <Select
                   value={form.study_target}
                   onValueChange={(v) => {
-                    set("study_target", v as CreateRoutinePayload["study_target"]);
+                    const next = v as StudyTarget;
+                    set("study_target", next);
                     // Keep legacy task_type in sync so cards render the right icon/tone
                     set(
                       "task_type",
-                      v === "mcq"
+                      next === "mcq"
                         ? "mcq"
-                        : v === "reading"
-                          ? "study"
-                          : v === "custom"
-                            ? "custom"
-                            : "study",
+                        : next === "exam"
+                          ? "mock"
+                          : next === "review"
+                            ? "revision"
+                            : next === "custom"
+                              ? "custom"
+                              : "study",
                     );
+                    // Sensible defaults per target: MCQ counts default lower,
+                    // durations default to 60 min.
+                    if (next === "mcq") {
+                      set("estimated_minutes", 20);
+                    } else if (form.study_target === "mcq") {
+                      set("estimated_minutes", 60);
+                    }
                   }}
                 >
                   <SelectTrigger>
@@ -406,29 +406,82 @@ export function CreateRoutineDialog({
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="mcq">MCQ</SelectItem>
-                    <SelectItem value="reading">Reading</SelectItem>
-                    <SelectItem value="time">Time</SelectItem>
+                    <SelectItem value="study">Study</SelectItem>
+                    <SelectItem value="review">Review</SelectItem>
+                    <SelectItem value="exam">Exam</SelectItem>
                     <SelectItem value="custom">Custom</SelectItem>
                   </SelectContent>
                 </Select>
               </FormField>
-              <FormField label="Estimated Duration (min)">
-                <Input
-                  type="number"
-                  min={5}
-                  max={24 * 60}
-                  value={form.estimated_minutes}
-                  onChange={(e) =>
-                    set(
-                      "estimated_minutes",
-                      Math.max(
-                        5,
-                        Math.min(24 * 60, Number(e.target.value) || 60),
-                      ),
-                    )
+              {form.study_target === "mcq" ? (
+                <FormField label="Number of MCQs">
+                  <Input
+                    type="number"
+                    min={1}
+                    max={1000}
+                    step={1}
+                    value={form.estimated_minutes}
+                    onChange={(e) =>
+                      set(
+                        "estimated_minutes",
+                        Math.max(
+                          1,
+                          Math.min(
+                            1000,
+                            Math.floor(Number(e.target.value) || 1),
+                          ),
+                        ),
+                      )
+                    }
+                    placeholder="e.g. 20"
+                  />
+                </FormField>
+              ) : form.study_target === "custom" ? (
+                <FormField label="Target">
+                  <Input
+                    type="number"
+                    min={1}
+                    max={24 * 60}
+                    value={form.estimated_minutes}
+                    onChange={(e) =>
+                      set(
+                        "estimated_minutes",
+                        Math.max(
+                          1,
+                          Math.min(24 * 60, Number(e.target.value) || 1),
+                        ),
+                      )
+                    }
+                    placeholder="Custom target value"
+                  />
+                </FormField>
+              ) : (
+                <FormField
+                  label={
+                    form.study_target === "study"
+                      ? "Study Duration (min)"
+                      : form.study_target === "review"
+                        ? "Review Duration (min)"
+                        : "Exam Duration (min)"
                   }
-                />
-              </FormField>
+                >
+                  <Input
+                    type="number"
+                    min={5}
+                    max={24 * 60}
+                    value={form.estimated_minutes}
+                    onChange={(e) =>
+                      set(
+                        "estimated_minutes",
+                        Math.max(
+                          5,
+                          Math.min(24 * 60, Number(e.target.value) || 60),
+                        ),
+                      )
+                    }
+                  />
+                </FormField>
+              )}
               <FormField label="Priority">
                 <Select
                   value={form.priority}
@@ -473,7 +526,16 @@ export function CreateRoutineDialog({
                   onChange={(e) => set("start_time", e.target.value)}
                 />
               </FormField>
-              <FormField label="Due Date" hint="Optional">
+              <FormField label="End Time" hint="Optional">
+                <Input
+                  type="time"
+                  value={form.end_time ?? ""}
+                  onChange={(e) =>
+                    set("end_time", e.target.value ? e.target.value : null)
+                  }
+                />
+              </FormField>
+              <FormField label="Due Date" hint="Optional" className="sm:col-span-2">
                 <Input
                   type="date"
                   value={form.due_date ?? ""}
@@ -484,6 +546,7 @@ export function CreateRoutineDialog({
               </FormField>
             </div>
           </Section>
+
 
           <Separator />
 
