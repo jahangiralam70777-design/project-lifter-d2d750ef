@@ -577,7 +577,15 @@ export const saveStudyRoutineWithSchedule = createServerFn({ method: "POST" })
     const legacyType = scheduleModeToLegacyType(data.schedule_mode);
     const start =
       data.start_time.length >= 5 ? data.start_time.slice(0, 5) : data.start_time;
-    const end = endTimeFromDuration(start, data.estimated_minutes);
+    // If the caller supplied an End Time we honor it verbatim (analytics then
+    // compute planned duration from end-start). Otherwise fall back to the
+    // legacy start + estimated_minutes derivation.
+    const providedEnd =
+      data.end_time && data.end_time.length >= 5
+        ? data.end_time.slice(0, 5)
+        : null;
+    const end = providedEnd ?? endTimeFromDuration(start, data.estimated_minutes);
+
 
     const routinePatch = {
       name: data.name,
