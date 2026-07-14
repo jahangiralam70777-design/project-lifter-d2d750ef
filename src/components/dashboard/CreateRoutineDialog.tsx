@@ -116,7 +116,7 @@ function defaults(): CreateRoutinePayload {
     level_code: null,
     subject_id: null,
     task_type: "study",
-    study_target: "time",
+    study_target: "study",
     estimated_minutes: 60,
     priority: "medium",
     default_status: "pending",
@@ -128,9 +128,11 @@ function defaults(): CreateRoutinePayload {
     start_date: todayISO(),
     end_date: null,
     start_time: "09:00",
+    end_time: null,
     chapter_id: null,
   };
 }
+
 
 export function CreateRoutineDialog({
   open,
