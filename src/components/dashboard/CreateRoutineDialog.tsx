@@ -337,15 +337,14 @@ export function CreateRoutineDialog({
           {/* Section 2 — Task settings */}
           <Section title="Task settings">
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <FormField
-                label="Task Name"
-                required
-                className="sm:col-span-2"
-              >
-                <Input
-                  value={form.task_title}
-                  onChange={(e) => set("task_title", e.target.value)}
-                  placeholder="e.g. Solve 30 MCQs"
+              <FormField label="Description" className="sm:col-span-2">
+                <Textarea
+                  rows={2}
+                  value={form.description ?? ""}
+                  onChange={(e) =>
+                    set("description", e.target.value ? e.target.value : null)
+                  }
+                  placeholder="Optional context or instructions"
                 />
               </FormField>
               <FormField label="Description" className="sm:col-span-2">
