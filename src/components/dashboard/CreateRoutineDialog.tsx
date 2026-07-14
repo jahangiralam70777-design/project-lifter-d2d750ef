@@ -420,31 +420,6 @@ export function CreateRoutineDialog({
                   </SelectContent>
                 </Select>
               </FormField>
-              <FormField label="Reminder">
-                <Select
-                  value={
-                    form.reminder_minutes == null
-                      ? "none"
-                      : String(form.reminder_minutes)
-                  }
-                  onValueChange={(v) =>
-                    set("reminder_minutes", v === "none" ? null : Number(v))
-                  }
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="No reminder" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="none">No reminder</SelectItem>
-                    <SelectItem value="0">At start time</SelectItem>
-                    <SelectItem value="5">5 min before</SelectItem>
-                    <SelectItem value="15">15 min before</SelectItem>
-                    <SelectItem value="30">30 min before</SelectItem>
-                    <SelectItem value="60">1 hour before</SelectItem>
-                    <SelectItem value="1440">1 day before</SelectItem>
-                  </SelectContent>
-                </Select>
-              </FormField>
               <FormField label="Status">
                 <Select
                   value={form.default_status}
