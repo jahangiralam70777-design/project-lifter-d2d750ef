@@ -101,6 +101,15 @@ export const deleteStudyRoutine = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     const ctx = context as unknown as { supabase: SupabaseClient<Database>; userId: string };
     const sb = ctx.supabase;
+    // Delete owned tasks first. The FK is ON DELETE CASCADE after the final
+    // consolidated migration, but we also delete explicitly so environments
+    // that haven't applied the FK upgrade yet don't leave orphan task rows.
+    const { error: taskErr } = await sb
+      .from("study_routine_tasks")
+      .delete()
+      .eq("routine_id", data.id)
+      .eq("user_id", ctx.userId);
+    if (taskErr) throw taskErr;
     const { error } = await sb
       .from("study_routines")
       .delete()
