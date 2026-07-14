@@ -166,9 +166,7 @@ export function CreateRoutineDialog({
         chapter_id: initial.chapter_id ?? null,
         task_type:
           (initial.task_type as CreateRoutinePayload["task_type"]) ?? "study",
-        study_target:
-          (initial.study_target as CreateRoutinePayload["study_target"]) ??
-          "time",
+        study_target: normalizeStudyTarget(initial.study_target),
         estimated_minutes: initial.estimated_minutes ?? 60,
         priority:
           (initial.priority as CreateRoutinePayload["priority"]) ?? "medium",
@@ -189,8 +187,10 @@ export function CreateRoutineDialog({
         start_date: initial.start_date ?? todayISO(),
         end_date: initial.end_date ?? null,
         start_time: (initial.start_time ?? "09:00").slice(0, 5),
+        end_time: initial.end_time ? initial.end_time.slice(0, 5) : null,
         is_active: initial.is_active,
       });
+
     } else {
       setForm(defaults());
     }
