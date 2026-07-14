@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS public.study_routines (
 CREATE TABLE IF NOT EXISTS public.study_routine_tasks (
   id            uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id       uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
-  routine_id    uuid REFERENCES public.study_routines(id) ON DELETE SET NULL,
+  routine_id    uuid REFERENCES public.study_routines(id) ON DELETE CASCADE,
   level_code    text,
   subject_id    uuid,
   chapter_id    uuid,
