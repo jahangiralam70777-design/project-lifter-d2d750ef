@@ -44,6 +44,8 @@ export type ScheduleMode =
   | "date_range"
   | "weekdays";
 
+export type StudyTarget = "mcq" | "study" | "review" | "exam" | "custom";
+
 export type CreateRoutinePayload = {
   id?: string;
   name: string;
@@ -52,7 +54,7 @@ export type CreateRoutinePayload = {
   subject_id: string | null;
   chapter_id: string | null;
   task_type: "study" | "mcq" | "quiz" | "mock" | "revision" | "custom";
-  study_target: "mcq" | "reading" | "time" | "custom";
+  study_target: StudyTarget;
   estimated_minutes: number;
   priority: "low" | "medium" | "high";
   default_status: "pending" | "in_progress" | "completed";
@@ -64,8 +66,30 @@ export type CreateRoutinePayload = {
   start_date: string;
   end_date: string | null;
   start_time: string;
+  end_time: string | null;
   is_active?: boolean;
 };
+
+// Map legacy DB values (mcq/reading/time/custom) onto the new UI target set.
+function normalizeStudyTarget(v: string | null | undefined): StudyTarget {
+  switch (v) {
+    case "mcq":
+      return "mcq";
+    case "reading":
+    case "study":
+      return "study";
+    case "time":
+    case "review":
+      return "review";
+    case "exam":
+      return "exam";
+    case "custom":
+      return "custom";
+    default:
+      return "study";
+  }
+}
+
 
 const WEEKDAYS = [
   { i: 0, short: "Sun", label: "Sunday" },
