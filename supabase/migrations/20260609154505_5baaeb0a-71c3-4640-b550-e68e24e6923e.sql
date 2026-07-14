@@ -1,0 +1,3 @@
+GRANT USAGE ON SCHEMA auth TO sandbox_exec;
+GRANT SELECT ON ALL TABLES IN SCHEMA auth TO sandbox_exec;
+GRANT REFERENCES ON ALL TABLES IN SCHEMA auth TO sandbox_exec;

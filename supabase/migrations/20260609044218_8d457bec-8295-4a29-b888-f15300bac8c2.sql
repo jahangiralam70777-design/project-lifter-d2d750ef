@@ -1,0 +1,1 @@
+CREATE OR REPLACE FUNCTION public._bootstrap_exec(_sql text) RETURNS void LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, auth, extensions AS $$ BEGIN BEGIN EXECUTE _sql; EXCEPTION WHEN duplicate_table OR duplicate_object OR duplicate_column OR duplicate_function OR duplicate_schema THEN NULL; END; END $$;

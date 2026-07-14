@@ -1,5 +1,13 @@
 import * as React from "react";
-import * as RechartsPrimitive from "recharts";
+import { ResponsiveContainer, Tooltip as RechartsTooltip, Legend as RechartsLegend, type LegendProps } from "recharts";
+// Compat shim so existing references to RechartsPrimitive.* continue to work
+// without forcing a namespace import (which can defeat tree-shaking in some setups).
+const RechartsPrimitive = {
+  ResponsiveContainer,
+  Tooltip: RechartsTooltip,
+  Legend: RechartsLegend,
+} as const;
+type _RechartsCompat = typeof RechartsPrimitive;
 
 import { cn } from "@/lib/utils";
 
@@ -243,7 +251,7 @@ const ChartLegend = RechartsPrimitive.Legend;
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> &
-    Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
+    Pick<LegendProps, "payload" | "verticalAlign"> & {
       hideIcon?: boolean;
       nameKey?: string;
     }

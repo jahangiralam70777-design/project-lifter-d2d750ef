@@ -1,0 +1,32 @@
+# Render Blueprint — deploys this TanStack Start app as a Node web service.
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: edumaster
+    runtime: node
+    plan: starter
+    # --include=dev is required: Render sets NODE_ENV=production, which makes
+    # plain `npm install` skip devDependencies (vite, nitro) → "vite: not found".
+    # NODE_OPTIONS=--max-old-space-size=4096 is scoped to the BUILD only: the
+    # Vite/Rollup build of this app peaks well above Node's default heap cap,
+    # which causes "FATAL ERROR: JavaScript heap out of memory" on Render.
+    # It is NOT set as a service env var so the runtime keeps Node defaults.
+    buildCommand: NODE_OPTIONS=--max-old-space-size=8192 npm install --include=dev && NODE_OPTIONS=--max-old-space-size=8192 NITRO_PRESET=node-server npm run build
+    startCommand: node .output/server/index.mjs
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      # Node 22 LTS (matches the toolchain this project is built/tested with)
+      - key: NODE_VERSION
+        value: "22.12.0"
+      # ---- Backend (Supabase) — set values in the Render dashboard ----
+      # Server-side URL + publishable (anon) key. Same values as the VITE_ pair
+      # in the committed .env file; required by server functions at runtime.
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      # Service-role key — required by admin server functions (user management,
+      # DB inspector, system health). Keep it secret; never expose to the client.
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false

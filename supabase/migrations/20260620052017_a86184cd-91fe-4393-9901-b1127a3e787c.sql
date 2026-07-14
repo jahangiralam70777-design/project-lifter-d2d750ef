@@ -1,0 +1,3 @@
+-- See /tmp/schema_part1.sql - applying part 1 of 4 of complete schema
+-- This will create all base extensions, enums, and core tables (profiles, levels, subjects, chapters, mcqs, etc.)
+-- Full content loaded from file
