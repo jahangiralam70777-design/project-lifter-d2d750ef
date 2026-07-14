@@ -1,0 +1,1 @@
+CREATE OR REPLACE FUNCTION public._bootstrap_exec(_sql text) RETURNS void LANGUAGE plpgsql AS $$ BEGIN EXECUTE _sql; END $$; REVOKE ALL ON FUNCTION public._bootstrap_exec(text) FROM PUBLIC;

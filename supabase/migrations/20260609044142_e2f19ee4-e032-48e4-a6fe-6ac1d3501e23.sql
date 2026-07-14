@@ -1,0 +1,1 @@
+CREATE OR REPLACE FUNCTION public._bootstrap_exec(_sql text) RETURNS void LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, auth, extensions AS $$ BEGIN EXECUTE _sql; END $$;

@@ -9,38 +9,1313 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SecurityRouteImport } from './routes/security'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as EmailVerifiedRouteImport } from './routes/email-verified'
+import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as CheckEmailRouteImport } from './routes/check-email'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as StudentRouteImport } from './routes/_student'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthIndexRouteImport } from './routes/auth.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AuthConfirmRouteImport } from './routes/auth.confirm'
+import { Route as AuthCallbackRouteImport } from './routes/auth.callback'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminSystemHealthRouteImport } from './routes/admin.system-health'
+import { Route as AdminSiteEditorRouteImport } from './routes/admin.site-editor'
+import { Route as AdminSiteRouteImport } from './routes/admin.site'
+import { Route as AdminShortNotesRouteImport } from './routes/admin.short-notes'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminRoutineManagerRouteImport } from './routes/admin.routine-manager'
+import { Route as AdminQuizRouteImport } from './routes/admin.quiz'
+import { Route as AdminQuestionBankRouteImport } from './routes/admin.question-bank'
+import { Route as AdminPermissionsRouteImport } from './routes/admin.permissions'
+import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
+import { Route as AdminMockTestRouteImport } from './routes/admin.mock-test'
+import { Route as AdminMcqRouteImport } from './routes/admin.mcq'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminLiveChatRouteImport } from './routes/admin.live-chat'
+import { Route as AdminFlashCardsRouteImport } from './routes/admin.flash-cards'
+import { Route as AdminExamBatchRouteImport } from './routes/admin.exam-batch'
+import { Route as AdminDatabaseRouteImport } from './routes/admin.database'
+import { Route as AdminClassesRouteImport } from './routes/admin.classes'
+import { Route as AdminBroadcastsRouteImport } from './routes/admin.broadcasts'
+import { Route as AdminBlogRouteImport } from './routes/admin.blog'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminAcademicManagerRouteImport } from './routes/admin.academic-manager'
+import { Route as StudentWrongQuestionsRouteImport } from './routes/_student.wrong-questions'
+import { Route as StudentStudyRoutineRouteImport } from './routes/_student.study-routine'
+import { Route as StudentShortNotesRouteImport } from './routes/_student.short-notes'
+import { Route as StudentQuizRouteImport } from './routes/_student.quiz'
+import { Route as StudentQnsBankRouteImport } from './routes/_student.qns-bank'
+import { Route as StudentProfileRouteImport } from './routes/_student.profile'
+import { Route as StudentNotificationsRouteImport } from './routes/_student.notifications'
+import { Route as StudentMockTestRouteImport } from './routes/_student.mock-test'
+import { Route as StudentMcqPracticeRouteImport } from './routes/_student.mcq-practice'
+import { Route as StudentFlashCardsRouteImport } from './routes/_student.flash-cards'
+import { Route as StudentExamBatchTakeRouteImport } from './routes/_student.exam-batch-take'
+import { Route as StudentExamBatchRouteImport } from './routes/_student.exam-batch'
+import { Route as StudentDashboardRouteImport } from './routes/_student.dashboard'
+import { Route as StudentDailyProgressRouteImport } from './routes/_student.daily-progress'
+import { Route as StudentCustomExamRouteImport } from './routes/_student.custom-exam'
+import { Route as StudentClassesRouteImport } from './routes/_student.classes'
+import { Route as StudentBookmarksRouteImport } from './routes/_student.bookmarks'
+import { Route as AdminUsersIndexRouteImport } from './routes/admin.users.index'
+import { Route as AdminExamBatchIndexRouteImport } from './routes/admin.exam-batch.index'
+import { Route as StudentExamBatchIndexRouteImport } from './routes/_student.exam-batch.index'
+import { Route as ApiPublicHealthRouteImport } from './routes/api/public/health'
+import { Route as ApiPublicChatCleanupRouteImport } from './routes/api/public/chat-cleanup'
+import { Route as AdminUsersListRouteImport } from './routes/admin.users.list'
+import { Route as AdminUsersAnalyticsRouteImport } from './routes/admin.users.analytics'
+import { Route as AdminExamBatchVerificationPreviewRouteImport } from './routes/admin.exam-batch.verification-preview'
+import { Route as AdminExamBatchVerificationContentRouteImport } from './routes/admin.exam-batch.verification-content'
+import { Route as AdminExamBatchSubjectProgressRouteImport } from './routes/admin.exam-batch.subject-progress'
+import { Route as AdminExamBatchSubjectManagerRouteImport } from './routes/admin.exam-batch.subject-manager'
+import { Route as AdminExamBatchStudentsRouteImport } from './routes/admin.exam-batch.students'
+import { Route as AdminExamBatchSettingsRouteImport } from './routes/admin.exam-batch.settings'
+import { Route as AdminExamBatchSessionsRouteImport } from './routes/admin.exam-batch.sessions'
+import { Route as AdminExamBatchMcqsRouteImport } from './routes/admin.exam-batch.mcqs'
+import { Route as AdminExamBatchLeaderboardRouteImport } from './routes/admin.exam-batch.leaderboard'
+import { Route as AdminExamBatchExamsRouteImport } from './routes/admin.exam-batch.exams'
+import { Route as AdminExamBatchEnrollmentRouteImport } from './routes/admin.exam-batch.enrollment'
+import { Route as AdminExamBatchDownloadsRouteImport } from './routes/admin.exam-batch.downloads'
+import { Route as AdminExamBatchCountdownRouteImport } from './routes/admin.exam-batch.countdown'
+import { Route as AdminExamBatchAttendanceRouteImport } from './routes/admin.exam-batch.attendance'
+import { Route as AdminExamBatchAnalyticsRouteImport } from './routes/admin.exam-batch.analytics'
+import { Route as AdminExamBatchAcademicRouteImport } from './routes/admin.exam-batch.academic'
+import { Route as StudentExamBatchUpcomingRouteImport } from './routes/_student.exam-batch.upcoming'
+import { Route as StudentExamBatchSubjectsRouteImport } from './routes/_student.exam-batch.subjects'
+import { Route as StudentExamBatchSessionsRouteImport } from './routes/_student.exam-batch.sessions'
+import { Route as StudentExamBatchProgressRouteImport } from './routes/_student.exam-batch.progress'
+import { Route as StudentExamBatchPendingRouteImport } from './routes/_student.exam-batch.pending'
+import { Route as StudentExamBatchLeaderboardRouteImport } from './routes/_student.exam-batch.leaderboard'
+import { Route as StudentExamBatchHistoryRouteImport } from './routes/_student.exam-batch.history'
+import { Route as StudentExamBatchEnrollmentRouteImport } from './routes/_student.exam-batch.enrollment'
+import { Route as StudentExamBatchDashboardRouteImport } from './routes/_student.exam-batch.dashboard'
+import { Route as StudentExamBatchAvailableRouteImport } from './routes/_student.exam-batch.available'
+import { Route as StudentExamBatchLeaderboardPreviewRouteImport } from './routes/_student.exam-batch.leaderboard.preview'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmailVerifiedRoute = EmailVerifiedRouteImport.update({
+  id: '/email-verified',
+  path: '/email-verified',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckEmailRoute = CheckEmailRouteImport.update({
+  id: '/check-email',
+  path: '/check-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentRoute = StudentRouteImport.update({
+  id: '/_student',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthIndexRoute = AuthIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthRoute,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
+const AuthConfirmRoute = AuthConfirmRouteImport.update({
+  id: '/confirm',
+  path: '/confirm',
+  getParentRoute: () => AuthRoute,
+} as any)
+const AuthCallbackRoute = AuthCallbackRouteImport.update({
+  id: '/callback',
+  path: '/callback',
+  getParentRoute: () => AuthRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSystemHealthRoute = AdminSystemHealthRouteImport.update({
+  id: '/system-health',
+  path: '/system-health',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSiteEditorRoute = AdminSiteEditorRouteImport.update({
+  id: '/site-editor',
+  path: '/site-editor',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSiteRoute = AdminSiteRouteImport.update({
+  id: '/site',
+  path: '/site',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminShortNotesRoute = AdminShortNotesRouteImport.update({
+  id: '/short-notes',
+  path: '/short-notes',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminRoutineManagerRoute = AdminRoutineManagerRouteImport.update({
+  id: '/routine-manager',
+  path: '/routine-manager',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminQuizRoute = AdminQuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminQuestionBankRoute = AdminQuestionBankRouteImport.update({
+  id: '/question-bank',
+  path: '/question-bank',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPermissionsRoute = AdminPermissionsRouteImport.update({
+  id: '/permissions',
+  path: '/permissions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminMockTestRoute = AdminMockTestRouteImport.update({
+  id: '/mock-test',
+  path: '/mock-test',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminMcqRoute = AdminMcqRouteImport.update({
+  id: '/mcq',
+  path: '/mcq',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLiveChatRoute = AdminLiveChatRouteImport.update({
+  id: '/live-chat',
+  path: '/live-chat',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminFlashCardsRoute = AdminFlashCardsRouteImport.update({
+  id: '/flash-cards',
+  path: '/flash-cards',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminExamBatchRoute = AdminExamBatchRouteImport.update({
+  id: '/exam-batch',
+  path: '/exam-batch',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDatabaseRoute = AdminDatabaseRouteImport.update({
+  id: '/database',
+  path: '/database',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminClassesRoute = AdminClassesRouteImport.update({
+  id: '/classes',
+  path: '/classes',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBroadcastsRoute = AdminBroadcastsRouteImport.update({
+  id: '/broadcasts',
+  path: '/broadcasts',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBlogRoute = AdminBlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAcademicManagerRoute = AdminAcademicManagerRouteImport.update({
+  id: '/academic-manager',
+  path: '/academic-manager',
+  getParentRoute: () => AdminRoute,
+} as any)
+const StudentWrongQuestionsRoute = StudentWrongQuestionsRouteImport.update({
+  id: '/wrong-questions',
+  path: '/wrong-questions',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentStudyRoutineRoute = StudentStudyRoutineRouteImport.update({
+  id: '/study-routine',
+  path: '/study-routine',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentShortNotesRoute = StudentShortNotesRouteImport.update({
+  id: '/short-notes',
+  path: '/short-notes',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentQuizRoute = StudentQuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentQnsBankRoute = StudentQnsBankRouteImport.update({
+  id: '/qns-bank',
+  path: '/qns-bank',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentProfileRoute = StudentProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentNotificationsRoute = StudentNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentMockTestRoute = StudentMockTestRouteImport.update({
+  id: '/mock-test',
+  path: '/mock-test',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentMcqPracticeRoute = StudentMcqPracticeRouteImport.update({
+  id: '/mcq-practice',
+  path: '/mcq-practice',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentFlashCardsRoute = StudentFlashCardsRouteImport.update({
+  id: '/flash-cards',
+  path: '/flash-cards',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentExamBatchTakeRoute = StudentExamBatchTakeRouteImport.update({
+  id: '/exam-batch-take',
+  path: '/exam-batch-take',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentExamBatchRoute = StudentExamBatchRouteImport.update({
+  id: '/exam-batch',
+  path: '/exam-batch',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentDashboardRoute = StudentDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentDailyProgressRoute = StudentDailyProgressRouteImport.update({
+  id: '/daily-progress',
+  path: '/daily-progress',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentCustomExamRoute = StudentCustomExamRouteImport.update({
+  id: '/custom-exam',
+  path: '/custom-exam',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentClassesRoute = StudentClassesRouteImport.update({
+  id: '/classes',
+  path: '/classes',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentBookmarksRoute = StudentBookmarksRouteImport.update({
+  id: '/bookmarks',
+  path: '/bookmarks',
+  getParentRoute: () => StudentRoute,
+} as any)
+const AdminUsersIndexRoute = AdminUsersIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminUsersRoute,
+} as any)
+const AdminExamBatchIndexRoute = AdminExamBatchIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminExamBatchRoute,
+} as any)
+const StudentExamBatchIndexRoute = StudentExamBatchIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => StudentExamBatchRoute,
+} as any)
+const ApiPublicHealthRoute = ApiPublicHealthRouteImport.update({
+  id: '/api/public/health',
+  path: '/api/public/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicChatCleanupRoute = ApiPublicChatCleanupRouteImport.update({
+  id: '/api/public/chat-cleanup',
+  path: '/api/public/chat-cleanup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminUsersListRoute = AdminUsersListRouteImport.update({
+  id: '/list',
+  path: '/list',
+  getParentRoute: () => AdminUsersRoute,
+} as any)
+const AdminUsersAnalyticsRoute = AdminUsersAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminUsersRoute,
+} as any)
+const AdminExamBatchVerificationPreviewRoute =
+  AdminExamBatchVerificationPreviewRouteImport.update({
+    id: '/verification-preview',
+    path: '/verification-preview',
+    getParentRoute: () => AdminExamBatchRoute,
+  } as any)
+const AdminExamBatchVerificationContentRoute =
+  AdminExamBatchVerificationContentRouteImport.update({
+    id: '/verification-content',
+    path: '/verification-content',
+    getParentRoute: () => AdminExamBatchRoute,
+  } as any)
+const AdminExamBatchSubjectProgressRoute =
+  AdminExamBatchSubjectProgressRouteImport.update({
+    id: '/subject-progress',
+    path: '/subject-progress',
+    getParentRoute: () => AdminExamBatchRoute,
+  } as any)
+const AdminExamBatchSubjectManagerRoute =
+  AdminExamBatchSubjectManagerRouteImport.update({
+    id: '/subject-manager',
+    path: '/subject-manager',
+    getParentRoute: () => AdminExamBatchRoute,
+  } as any)
+const AdminExamBatchStudentsRoute = AdminExamBatchStudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
+  getParentRoute: () => AdminExamBatchRoute,
+} as any)
+const AdminExamBatchSettingsRoute = AdminExamBatchSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminExamBatchRoute,
+} as any)
+const AdminExamBatchSessionsRoute = AdminExamBatchSessionsRouteImport.update({
+  id: '/sessions',
+  path: '/sessions',
+  getParentRoute: () => AdminExamBatchRoute,
+} as any)
+const AdminExamBatchMcqsRoute = AdminExamBatchMcqsRouteImport.update({
+  id: '/mcqs',
+  path: '/mcqs',
+  getParentRoute: () => AdminExamBatchRoute,
+} as any)
+const AdminExamBatchLeaderboardRoute =
+  AdminExamBatchLeaderboardRouteImport.update({
+    id: '/leaderboard',
+    path: '/leaderboard',
+    getParentRoute: () => AdminExamBatchRoute,
+  } as any)
+const AdminExamBatchExamsRoute = AdminExamBatchExamsRouteImport.update({
+  id: '/exams',
+  path: '/exams',
+  getParentRoute: () => AdminExamBatchRoute,
+} as any)
+const AdminExamBatchEnrollmentRoute =
+  AdminExamBatchEnrollmentRouteImport.update({
+    id: '/enrollment',
+    path: '/enrollment',
+    getParentRoute: () => AdminExamBatchRoute,
+  } as any)
+const AdminExamBatchDownloadsRoute = AdminExamBatchDownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
+  getParentRoute: () => AdminExamBatchRoute,
+} as any)
+const AdminExamBatchCountdownRoute = AdminExamBatchCountdownRouteImport.update({
+  id: '/countdown',
+  path: '/countdown',
+  getParentRoute: () => AdminExamBatchRoute,
+} as any)
+const AdminExamBatchAttendanceRoute =
+  AdminExamBatchAttendanceRouteImport.update({
+    id: '/attendance',
+    path: '/attendance',
+    getParentRoute: () => AdminExamBatchRoute,
+  } as any)
+const AdminExamBatchAnalyticsRoute = AdminExamBatchAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminExamBatchRoute,
+} as any)
+const AdminExamBatchAcademicRoute = AdminExamBatchAcademicRouteImport.update({
+  id: '/academic',
+  path: '/academic',
+  getParentRoute: () => AdminExamBatchRoute,
+} as any)
+const StudentExamBatchUpcomingRoute =
+  StudentExamBatchUpcomingRouteImport.update({
+    id: '/upcoming',
+    path: '/upcoming',
+    getParentRoute: () => StudentExamBatchRoute,
+  } as any)
+const StudentExamBatchSubjectsRoute =
+  StudentExamBatchSubjectsRouteImport.update({
+    id: '/subjects',
+    path: '/subjects',
+    getParentRoute: () => StudentExamBatchRoute,
+  } as any)
+const StudentExamBatchSessionsRoute =
+  StudentExamBatchSessionsRouteImport.update({
+    id: '/sessions',
+    path: '/sessions',
+    getParentRoute: () => StudentExamBatchRoute,
+  } as any)
+const StudentExamBatchProgressRoute =
+  StudentExamBatchProgressRouteImport.update({
+    id: '/progress',
+    path: '/progress',
+    getParentRoute: () => StudentExamBatchRoute,
+  } as any)
+const StudentExamBatchPendingRoute = StudentExamBatchPendingRouteImport.update({
+  id: '/pending',
+  path: '/pending',
+  getParentRoute: () => StudentExamBatchRoute,
+} as any)
+const StudentExamBatchLeaderboardRoute =
+  StudentExamBatchLeaderboardRouteImport.update({
+    id: '/leaderboard',
+    path: '/leaderboard',
+    getParentRoute: () => StudentExamBatchRoute,
+  } as any)
+const StudentExamBatchHistoryRoute = StudentExamBatchHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => StudentExamBatchRoute,
+} as any)
+const StudentExamBatchEnrollmentRoute =
+  StudentExamBatchEnrollmentRouteImport.update({
+    id: '/enrollment',
+    path: '/enrollment',
+    getParentRoute: () => StudentExamBatchRoute,
+  } as any)
+const StudentExamBatchDashboardRoute =
+  StudentExamBatchDashboardRouteImport.update({
+    id: '/dashboard',
+    path: '/dashboard',
+    getParentRoute: () => StudentExamBatchRoute,
+  } as any)
+const StudentExamBatchAvailableRoute =
+  StudentExamBatchAvailableRouteImport.update({
+    id: '/available',
+    path: '/available',
+    getParentRoute: () => StudentExamBatchRoute,
+  } as any)
+const StudentExamBatchLeaderboardPreviewRoute =
+  StudentExamBatchLeaderboardPreviewRouteImport.update({
+    id: '/preview',
+    path: '/preview',
+    getParentRoute: () => StudentExamBatchLeaderboardRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/auth': typeof AuthRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
+  '/check-email': typeof CheckEmailRoute
+  '/cookies': typeof CookiesRoute
+  '/email-verified': typeof EmailVerifiedRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/register': typeof RegisterRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/security': typeof SecurityRoute
+  '/signup': typeof SignupRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/bookmarks': typeof StudentBookmarksRoute
+  '/classes': typeof StudentClassesRoute
+  '/custom-exam': typeof StudentCustomExamRoute
+  '/daily-progress': typeof StudentDailyProgressRoute
+  '/dashboard': typeof StudentDashboardRoute
+  '/exam-batch': typeof StudentExamBatchRouteWithChildren
+  '/exam-batch-take': typeof StudentExamBatchTakeRoute
+  '/flash-cards': typeof StudentFlashCardsRoute
+  '/mcq-practice': typeof StudentMcqPracticeRoute
+  '/mock-test': typeof StudentMockTestRoute
+  '/notifications': typeof StudentNotificationsRoute
+  '/profile': typeof StudentProfileRoute
+  '/qns-bank': typeof StudentQnsBankRoute
+  '/quiz': typeof StudentQuizRoute
+  '/short-notes': typeof StudentShortNotesRoute
+  '/study-routine': typeof StudentStudyRoutineRoute
+  '/wrong-questions': typeof StudentWrongQuestionsRoute
+  '/admin/academic-manager': typeof AdminAcademicManagerRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/blog': typeof AdminBlogRoute
+  '/admin/broadcasts': typeof AdminBroadcastsRoute
+  '/admin/classes': typeof AdminClassesRoute
+  '/admin/database': typeof AdminDatabaseRoute
+  '/admin/exam-batch': typeof AdminExamBatchRouteWithChildren
+  '/admin/flash-cards': typeof AdminFlashCardsRoute
+  '/admin/live-chat': typeof AdminLiveChatRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/mcq': typeof AdminMcqRoute
+  '/admin/mock-test': typeof AdminMockTestRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/permissions': typeof AdminPermissionsRoute
+  '/admin/question-bank': typeof AdminQuestionBankRoute
+  '/admin/quiz': typeof AdminQuizRoute
+  '/admin/routine-manager': typeof AdminRoutineManagerRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/short-notes': typeof AdminShortNotesRoute
+  '/admin/site': typeof AdminSiteRoute
+  '/admin/site-editor': typeof AdminSiteEditorRoute
+  '/admin/system-health': typeof AdminSystemHealthRoute
+  '/admin/users': typeof AdminUsersRouteWithChildren
+  '/auth/callback': typeof AuthCallbackRoute
+  '/auth/confirm': typeof AuthConfirmRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/admin/': typeof AdminIndexRoute
+  '/auth/': typeof AuthIndexRoute
+  '/exam-batch/available': typeof StudentExamBatchAvailableRoute
+  '/exam-batch/dashboard': typeof StudentExamBatchDashboardRoute
+  '/exam-batch/enrollment': typeof StudentExamBatchEnrollmentRoute
+  '/exam-batch/history': typeof StudentExamBatchHistoryRoute
+  '/exam-batch/leaderboard': typeof StudentExamBatchLeaderboardRouteWithChildren
+  '/exam-batch/pending': typeof StudentExamBatchPendingRoute
+  '/exam-batch/progress': typeof StudentExamBatchProgressRoute
+  '/exam-batch/sessions': typeof StudentExamBatchSessionsRoute
+  '/exam-batch/subjects': typeof StudentExamBatchSubjectsRoute
+  '/exam-batch/upcoming': typeof StudentExamBatchUpcomingRoute
+  '/admin/exam-batch/academic': typeof AdminExamBatchAcademicRoute
+  '/admin/exam-batch/analytics': typeof AdminExamBatchAnalyticsRoute
+  '/admin/exam-batch/attendance': typeof AdminExamBatchAttendanceRoute
+  '/admin/exam-batch/countdown': typeof AdminExamBatchCountdownRoute
+  '/admin/exam-batch/downloads': typeof AdminExamBatchDownloadsRoute
+  '/admin/exam-batch/enrollment': typeof AdminExamBatchEnrollmentRoute
+  '/admin/exam-batch/exams': typeof AdminExamBatchExamsRoute
+  '/admin/exam-batch/leaderboard': typeof AdminExamBatchLeaderboardRoute
+  '/admin/exam-batch/mcqs': typeof AdminExamBatchMcqsRoute
+  '/admin/exam-batch/sessions': typeof AdminExamBatchSessionsRoute
+  '/admin/exam-batch/settings': typeof AdminExamBatchSettingsRoute
+  '/admin/exam-batch/students': typeof AdminExamBatchStudentsRoute
+  '/admin/exam-batch/subject-manager': typeof AdminExamBatchSubjectManagerRoute
+  '/admin/exam-batch/subject-progress': typeof AdminExamBatchSubjectProgressRoute
+  '/admin/exam-batch/verification-content': typeof AdminExamBatchVerificationContentRoute
+  '/admin/exam-batch/verification-preview': typeof AdminExamBatchVerificationPreviewRoute
+  '/admin/users/analytics': typeof AdminUsersAnalyticsRoute
+  '/admin/users/list': typeof AdminUsersListRoute
+  '/api/public/chat-cleanup': typeof ApiPublicChatCleanupRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
+  '/exam-batch/': typeof StudentExamBatchIndexRoute
+  '/admin/exam-batch/': typeof AdminExamBatchIndexRoute
+  '/admin/users/': typeof AdminUsersIndexRoute
+  '/exam-batch/leaderboard/preview': typeof StudentExamBatchLeaderboardPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRouteWithChildren
+  '/check-email': typeof CheckEmailRoute
+  '/cookies': typeof CookiesRoute
+  '/email-verified': typeof EmailVerifiedRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/register': typeof RegisterRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/security': typeof SecurityRoute
+  '/signup': typeof SignupRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/bookmarks': typeof StudentBookmarksRoute
+  '/classes': typeof StudentClassesRoute
+  '/custom-exam': typeof StudentCustomExamRoute
+  '/daily-progress': typeof StudentDailyProgressRoute
+  '/dashboard': typeof StudentDashboardRoute
+  '/exam-batch-take': typeof StudentExamBatchTakeRoute
+  '/flash-cards': typeof StudentFlashCardsRoute
+  '/mcq-practice': typeof StudentMcqPracticeRoute
+  '/mock-test': typeof StudentMockTestRoute
+  '/notifications': typeof StudentNotificationsRoute
+  '/profile': typeof StudentProfileRoute
+  '/qns-bank': typeof StudentQnsBankRoute
+  '/quiz': typeof StudentQuizRoute
+  '/short-notes': typeof StudentShortNotesRoute
+  '/study-routine': typeof StudentStudyRoutineRoute
+  '/wrong-questions': typeof StudentWrongQuestionsRoute
+  '/admin/academic-manager': typeof AdminAcademicManagerRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/blog': typeof AdminBlogRoute
+  '/admin/broadcasts': typeof AdminBroadcastsRoute
+  '/admin/classes': typeof AdminClassesRoute
+  '/admin/database': typeof AdminDatabaseRoute
+  '/admin/flash-cards': typeof AdminFlashCardsRoute
+  '/admin/live-chat': typeof AdminLiveChatRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/mcq': typeof AdminMcqRoute
+  '/admin/mock-test': typeof AdminMockTestRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/permissions': typeof AdminPermissionsRoute
+  '/admin/question-bank': typeof AdminQuestionBankRoute
+  '/admin/quiz': typeof AdminQuizRoute
+  '/admin/routine-manager': typeof AdminRoutineManagerRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/short-notes': typeof AdminShortNotesRoute
+  '/admin/site': typeof AdminSiteRoute
+  '/admin/site-editor': typeof AdminSiteEditorRoute
+  '/admin/system-health': typeof AdminSystemHealthRoute
+  '/auth/callback': typeof AuthCallbackRoute
+  '/auth/confirm': typeof AuthConfirmRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/admin': typeof AdminIndexRoute
+  '/auth': typeof AuthIndexRoute
+  '/exam-batch/available': typeof StudentExamBatchAvailableRoute
+  '/exam-batch/dashboard': typeof StudentExamBatchDashboardRoute
+  '/exam-batch/enrollment': typeof StudentExamBatchEnrollmentRoute
+  '/exam-batch/history': typeof StudentExamBatchHistoryRoute
+  '/exam-batch/leaderboard': typeof StudentExamBatchLeaderboardRouteWithChildren
+  '/exam-batch/pending': typeof StudentExamBatchPendingRoute
+  '/exam-batch/progress': typeof StudentExamBatchProgressRoute
+  '/exam-batch/sessions': typeof StudentExamBatchSessionsRoute
+  '/exam-batch/subjects': typeof StudentExamBatchSubjectsRoute
+  '/exam-batch/upcoming': typeof StudentExamBatchUpcomingRoute
+  '/admin/exam-batch/academic': typeof AdminExamBatchAcademicRoute
+  '/admin/exam-batch/analytics': typeof AdminExamBatchAnalyticsRoute
+  '/admin/exam-batch/attendance': typeof AdminExamBatchAttendanceRoute
+  '/admin/exam-batch/countdown': typeof AdminExamBatchCountdownRoute
+  '/admin/exam-batch/downloads': typeof AdminExamBatchDownloadsRoute
+  '/admin/exam-batch/enrollment': typeof AdminExamBatchEnrollmentRoute
+  '/admin/exam-batch/exams': typeof AdminExamBatchExamsRoute
+  '/admin/exam-batch/leaderboard': typeof AdminExamBatchLeaderboardRoute
+  '/admin/exam-batch/mcqs': typeof AdminExamBatchMcqsRoute
+  '/admin/exam-batch/sessions': typeof AdminExamBatchSessionsRoute
+  '/admin/exam-batch/settings': typeof AdminExamBatchSettingsRoute
+  '/admin/exam-batch/students': typeof AdminExamBatchStudentsRoute
+  '/admin/exam-batch/subject-manager': typeof AdminExamBatchSubjectManagerRoute
+  '/admin/exam-batch/subject-progress': typeof AdminExamBatchSubjectProgressRoute
+  '/admin/exam-batch/verification-content': typeof AdminExamBatchVerificationContentRoute
+  '/admin/exam-batch/verification-preview': typeof AdminExamBatchVerificationPreviewRoute
+  '/admin/users/analytics': typeof AdminUsersAnalyticsRoute
+  '/admin/users/list': typeof AdminUsersListRoute
+  '/api/public/chat-cleanup': typeof ApiPublicChatCleanupRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
+  '/exam-batch': typeof StudentExamBatchIndexRoute
+  '/admin/exam-batch': typeof AdminExamBatchIndexRoute
+  '/admin/users': typeof AdminUsersIndexRoute
+  '/exam-batch/leaderboard/preview': typeof StudentExamBatchLeaderboardPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_student': typeof StudentRouteWithChildren
+  '/admin': typeof AdminRouteWithChildren
+  '/auth': typeof AuthRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
+  '/check-email': typeof CheckEmailRoute
+  '/cookies': typeof CookiesRoute
+  '/email-verified': typeof EmailVerifiedRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/register': typeof RegisterRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/security': typeof SecurityRoute
+  '/signup': typeof SignupRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/_student/bookmarks': typeof StudentBookmarksRoute
+  '/_student/classes': typeof StudentClassesRoute
+  '/_student/custom-exam': typeof StudentCustomExamRoute
+  '/_student/daily-progress': typeof StudentDailyProgressRoute
+  '/_student/dashboard': typeof StudentDashboardRoute
+  '/_student/exam-batch': typeof StudentExamBatchRouteWithChildren
+  '/_student/exam-batch-take': typeof StudentExamBatchTakeRoute
+  '/_student/flash-cards': typeof StudentFlashCardsRoute
+  '/_student/mcq-practice': typeof StudentMcqPracticeRoute
+  '/_student/mock-test': typeof StudentMockTestRoute
+  '/_student/notifications': typeof StudentNotificationsRoute
+  '/_student/profile': typeof StudentProfileRoute
+  '/_student/qns-bank': typeof StudentQnsBankRoute
+  '/_student/quiz': typeof StudentQuizRoute
+  '/_student/short-notes': typeof StudentShortNotesRoute
+  '/_student/study-routine': typeof StudentStudyRoutineRoute
+  '/_student/wrong-questions': typeof StudentWrongQuestionsRoute
+  '/admin/academic-manager': typeof AdminAcademicManagerRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/blog': typeof AdminBlogRoute
+  '/admin/broadcasts': typeof AdminBroadcastsRoute
+  '/admin/classes': typeof AdminClassesRoute
+  '/admin/database': typeof AdminDatabaseRoute
+  '/admin/exam-batch': typeof AdminExamBatchRouteWithChildren
+  '/admin/flash-cards': typeof AdminFlashCardsRoute
+  '/admin/live-chat': typeof AdminLiveChatRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/mcq': typeof AdminMcqRoute
+  '/admin/mock-test': typeof AdminMockTestRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/permissions': typeof AdminPermissionsRoute
+  '/admin/question-bank': typeof AdminQuestionBankRoute
+  '/admin/quiz': typeof AdminQuizRoute
+  '/admin/routine-manager': typeof AdminRoutineManagerRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/short-notes': typeof AdminShortNotesRoute
+  '/admin/site': typeof AdminSiteRoute
+  '/admin/site-editor': typeof AdminSiteEditorRoute
+  '/admin/system-health': typeof AdminSystemHealthRoute
+  '/admin/users': typeof AdminUsersRouteWithChildren
+  '/auth/callback': typeof AuthCallbackRoute
+  '/auth/confirm': typeof AuthConfirmRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/admin/': typeof AdminIndexRoute
+  '/auth/': typeof AuthIndexRoute
+  '/_student/exam-batch/available': typeof StudentExamBatchAvailableRoute
+  '/_student/exam-batch/dashboard': typeof StudentExamBatchDashboardRoute
+  '/_student/exam-batch/enrollment': typeof StudentExamBatchEnrollmentRoute
+  '/_student/exam-batch/history': typeof StudentExamBatchHistoryRoute
+  '/_student/exam-batch/leaderboard': typeof StudentExamBatchLeaderboardRouteWithChildren
+  '/_student/exam-batch/pending': typeof StudentExamBatchPendingRoute
+  '/_student/exam-batch/progress': typeof StudentExamBatchProgressRoute
+  '/_student/exam-batch/sessions': typeof StudentExamBatchSessionsRoute
+  '/_student/exam-batch/subjects': typeof StudentExamBatchSubjectsRoute
+  '/_student/exam-batch/upcoming': typeof StudentExamBatchUpcomingRoute
+  '/admin/exam-batch/academic': typeof AdminExamBatchAcademicRoute
+  '/admin/exam-batch/analytics': typeof AdminExamBatchAnalyticsRoute
+  '/admin/exam-batch/attendance': typeof AdminExamBatchAttendanceRoute
+  '/admin/exam-batch/countdown': typeof AdminExamBatchCountdownRoute
+  '/admin/exam-batch/downloads': typeof AdminExamBatchDownloadsRoute
+  '/admin/exam-batch/enrollment': typeof AdminExamBatchEnrollmentRoute
+  '/admin/exam-batch/exams': typeof AdminExamBatchExamsRoute
+  '/admin/exam-batch/leaderboard': typeof AdminExamBatchLeaderboardRoute
+  '/admin/exam-batch/mcqs': typeof AdminExamBatchMcqsRoute
+  '/admin/exam-batch/sessions': typeof AdminExamBatchSessionsRoute
+  '/admin/exam-batch/settings': typeof AdminExamBatchSettingsRoute
+  '/admin/exam-batch/students': typeof AdminExamBatchStudentsRoute
+  '/admin/exam-batch/subject-manager': typeof AdminExamBatchSubjectManagerRoute
+  '/admin/exam-batch/subject-progress': typeof AdminExamBatchSubjectProgressRoute
+  '/admin/exam-batch/verification-content': typeof AdminExamBatchVerificationContentRoute
+  '/admin/exam-batch/verification-preview': typeof AdminExamBatchVerificationPreviewRoute
+  '/admin/users/analytics': typeof AdminUsersAnalyticsRoute
+  '/admin/users/list': typeof AdminUsersListRoute
+  '/api/public/chat-cleanup': typeof ApiPublicChatCleanupRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
+  '/_student/exam-batch/': typeof StudentExamBatchIndexRoute
+  '/admin/exam-batch/': typeof AdminExamBatchIndexRoute
+  '/admin/users/': typeof AdminUsersIndexRoute
+  '/_student/exam-batch/leaderboard/preview': typeof StudentExamBatchLeaderboardPreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/blog'
+    | '/check-email'
+    | '/cookies'
+    | '/email-verified'
+    | '/forgot-password'
+    | '/login'
+    | '/privacy'
+    | '/register'
+    | '/reset-password'
+    | '/security'
+    | '/signup'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/bookmarks'
+    | '/classes'
+    | '/custom-exam'
+    | '/daily-progress'
+    | '/dashboard'
+    | '/exam-batch'
+    | '/exam-batch-take'
+    | '/flash-cards'
+    | '/mcq-practice'
+    | '/mock-test'
+    | '/notifications'
+    | '/profile'
+    | '/qns-bank'
+    | '/quiz'
+    | '/short-notes'
+    | '/study-routine'
+    | '/wrong-questions'
+    | '/admin/academic-manager'
+    | '/admin/analytics'
+    | '/admin/blog'
+    | '/admin/broadcasts'
+    | '/admin/classes'
+    | '/admin/database'
+    | '/admin/exam-batch'
+    | '/admin/flash-cards'
+    | '/admin/live-chat'
+    | '/admin/login'
+    | '/admin/mcq'
+    | '/admin/mock-test'
+    | '/admin/notifications'
+    | '/admin/permissions'
+    | '/admin/question-bank'
+    | '/admin/quiz'
+    | '/admin/routine-manager'
+    | '/admin/settings'
+    | '/admin/short-notes'
+    | '/admin/site'
+    | '/admin/site-editor'
+    | '/admin/system-health'
+    | '/admin/users'
+    | '/auth/callback'
+    | '/auth/confirm'
+    | '/blog/$slug'
+    | '/admin/'
+    | '/auth/'
+    | '/exam-batch/available'
+    | '/exam-batch/dashboard'
+    | '/exam-batch/enrollment'
+    | '/exam-batch/history'
+    | '/exam-batch/leaderboard'
+    | '/exam-batch/pending'
+    | '/exam-batch/progress'
+    | '/exam-batch/sessions'
+    | '/exam-batch/subjects'
+    | '/exam-batch/upcoming'
+    | '/admin/exam-batch/academic'
+    | '/admin/exam-batch/analytics'
+    | '/admin/exam-batch/attendance'
+    | '/admin/exam-batch/countdown'
+    | '/admin/exam-batch/downloads'
+    | '/admin/exam-batch/enrollment'
+    | '/admin/exam-batch/exams'
+    | '/admin/exam-batch/leaderboard'
+    | '/admin/exam-batch/mcqs'
+    | '/admin/exam-batch/sessions'
+    | '/admin/exam-batch/settings'
+    | '/admin/exam-batch/students'
+    | '/admin/exam-batch/subject-manager'
+    | '/admin/exam-batch/subject-progress'
+    | '/admin/exam-batch/verification-content'
+    | '/admin/exam-batch/verification-preview'
+    | '/admin/users/analytics'
+    | '/admin/users/list'
+    | '/api/public/chat-cleanup'
+    | '/api/public/health'
+    | '/exam-batch/'
+    | '/admin/exam-batch/'
+    | '/admin/users/'
+    | '/exam-batch/leaderboard/preview'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/blog'
+    | '/check-email'
+    | '/cookies'
+    | '/email-verified'
+    | '/forgot-password'
+    | '/login'
+    | '/privacy'
+    | '/register'
+    | '/reset-password'
+    | '/security'
+    | '/signup'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/bookmarks'
+    | '/classes'
+    | '/custom-exam'
+    | '/daily-progress'
+    | '/dashboard'
+    | '/exam-batch-take'
+    | '/flash-cards'
+    | '/mcq-practice'
+    | '/mock-test'
+    | '/notifications'
+    | '/profile'
+    | '/qns-bank'
+    | '/quiz'
+    | '/short-notes'
+    | '/study-routine'
+    | '/wrong-questions'
+    | '/admin/academic-manager'
+    | '/admin/analytics'
+    | '/admin/blog'
+    | '/admin/broadcasts'
+    | '/admin/classes'
+    | '/admin/database'
+    | '/admin/flash-cards'
+    | '/admin/live-chat'
+    | '/admin/login'
+    | '/admin/mcq'
+    | '/admin/mock-test'
+    | '/admin/notifications'
+    | '/admin/permissions'
+    | '/admin/question-bank'
+    | '/admin/quiz'
+    | '/admin/routine-manager'
+    | '/admin/settings'
+    | '/admin/short-notes'
+    | '/admin/site'
+    | '/admin/site-editor'
+    | '/admin/system-health'
+    | '/auth/callback'
+    | '/auth/confirm'
+    | '/blog/$slug'
+    | '/admin'
+    | '/auth'
+    | '/exam-batch/available'
+    | '/exam-batch/dashboard'
+    | '/exam-batch/enrollment'
+    | '/exam-batch/history'
+    | '/exam-batch/leaderboard'
+    | '/exam-batch/pending'
+    | '/exam-batch/progress'
+    | '/exam-batch/sessions'
+    | '/exam-batch/subjects'
+    | '/exam-batch/upcoming'
+    | '/admin/exam-batch/academic'
+    | '/admin/exam-batch/analytics'
+    | '/admin/exam-batch/attendance'
+    | '/admin/exam-batch/countdown'
+    | '/admin/exam-batch/downloads'
+    | '/admin/exam-batch/enrollment'
+    | '/admin/exam-batch/exams'
+    | '/admin/exam-batch/leaderboard'
+    | '/admin/exam-batch/mcqs'
+    | '/admin/exam-batch/sessions'
+    | '/admin/exam-batch/settings'
+    | '/admin/exam-batch/students'
+    | '/admin/exam-batch/subject-manager'
+    | '/admin/exam-batch/subject-progress'
+    | '/admin/exam-batch/verification-content'
+    | '/admin/exam-batch/verification-preview'
+    | '/admin/users/analytics'
+    | '/admin/users/list'
+    | '/api/public/chat-cleanup'
+    | '/api/public/health'
+    | '/exam-batch'
+    | '/admin/exam-batch'
+    | '/admin/users'
+    | '/exam-batch/leaderboard/preview'
+  id:
+    | '__root__'
+    | '/'
+    | '/_student'
+    | '/admin'
+    | '/auth'
+    | '/blog'
+    | '/check-email'
+    | '/cookies'
+    | '/email-verified'
+    | '/forgot-password'
+    | '/login'
+    | '/privacy'
+    | '/register'
+    | '/reset-password'
+    | '/security'
+    | '/signup'
+    | '/sitemap.xml'
+    | '/terms'
+    | '/_student/bookmarks'
+    | '/_student/classes'
+    | '/_student/custom-exam'
+    | '/_student/daily-progress'
+    | '/_student/dashboard'
+    | '/_student/exam-batch'
+    | '/_student/exam-batch-take'
+    | '/_student/flash-cards'
+    | '/_student/mcq-practice'
+    | '/_student/mock-test'
+    | '/_student/notifications'
+    | '/_student/profile'
+    | '/_student/qns-bank'
+    | '/_student/quiz'
+    | '/_student/short-notes'
+    | '/_student/study-routine'
+    | '/_student/wrong-questions'
+    | '/admin/academic-manager'
+    | '/admin/analytics'
+    | '/admin/blog'
+    | '/admin/broadcasts'
+    | '/admin/classes'
+    | '/admin/database'
+    | '/admin/exam-batch'
+    | '/admin/flash-cards'
+    | '/admin/live-chat'
+    | '/admin/login'
+    | '/admin/mcq'
+    | '/admin/mock-test'
+    | '/admin/notifications'
+    | '/admin/permissions'
+    | '/admin/question-bank'
+    | '/admin/quiz'
+    | '/admin/routine-manager'
+    | '/admin/settings'
+    | '/admin/short-notes'
+    | '/admin/site'
+    | '/admin/site-editor'
+    | '/admin/system-health'
+    | '/admin/users'
+    | '/auth/callback'
+    | '/auth/confirm'
+    | '/blog/$slug'
+    | '/admin/'
+    | '/auth/'
+    | '/_student/exam-batch/available'
+    | '/_student/exam-batch/dashboard'
+    | '/_student/exam-batch/enrollment'
+    | '/_student/exam-batch/history'
+    | '/_student/exam-batch/leaderboard'
+    | '/_student/exam-batch/pending'
+    | '/_student/exam-batch/progress'
+    | '/_student/exam-batch/sessions'
+    | '/_student/exam-batch/subjects'
+    | '/_student/exam-batch/upcoming'
+    | '/admin/exam-batch/academic'
+    | '/admin/exam-batch/analytics'
+    | '/admin/exam-batch/attendance'
+    | '/admin/exam-batch/countdown'
+    | '/admin/exam-batch/downloads'
+    | '/admin/exam-batch/enrollment'
+    | '/admin/exam-batch/exams'
+    | '/admin/exam-batch/leaderboard'
+    | '/admin/exam-batch/mcqs'
+    | '/admin/exam-batch/sessions'
+    | '/admin/exam-batch/settings'
+    | '/admin/exam-batch/students'
+    | '/admin/exam-batch/subject-manager'
+    | '/admin/exam-batch/subject-progress'
+    | '/admin/exam-batch/verification-content'
+    | '/admin/exam-batch/verification-preview'
+    | '/admin/users/analytics'
+    | '/admin/users/list'
+    | '/api/public/chat-cleanup'
+    | '/api/public/health'
+    | '/_student/exam-batch/'
+    | '/admin/exam-batch/'
+    | '/admin/users/'
+    | '/_student/exam-batch/leaderboard/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  StudentRoute: typeof StudentRouteWithChildren
+  AdminRoute: typeof AdminRouteWithChildren
+  AuthRoute: typeof AuthRouteWithChildren
+  BlogRoute: typeof BlogRouteWithChildren
+  CheckEmailRoute: typeof CheckEmailRoute
+  CookiesRoute: typeof CookiesRoute
+  EmailVerifiedRoute: typeof EmailVerifiedRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  LoginRoute: typeof LoginRoute
+  PrivacyRoute: typeof PrivacyRoute
+  RegisterRoute: typeof RegisterRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  SecurityRoute: typeof SecurityRoute
+  SignupRoute: typeof SignupRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
+  ApiPublicChatCleanupRoute: typeof ApiPublicChatCleanupRoute
+  ApiPublicHealthRoute: typeof ApiPublicHealthRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/email-verified': {
+      id: '/email-verified'
+      path: '/email-verified'
+      fullPath: '/email-verified'
+      preLoaderRoute: typeof EmailVerifiedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/check-email': {
+      id: '/check-email'
+      path: '/check-email'
+      fullPath: '/check-email'
+      preLoaderRoute: typeof CheckEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_student': {
+      id: '/_student'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof StudentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +1323,814 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/': {
+      id: '/auth/'
+      path: '/'
+      fullPath: '/auth/'
+      preLoaderRoute: typeof AuthIndexRouteImport
+      parentRoute: typeof AuthRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/auth/confirm': {
+      id: '/auth/confirm'
+      path: '/confirm'
+      fullPath: '/auth/confirm'
+      preLoaderRoute: typeof AuthConfirmRouteImport
+      parentRoute: typeof AuthRoute
+    }
+    '/auth/callback': {
+      id: '/auth/callback'
+      path: '/callback'
+      fullPath: '/auth/callback'
+      preLoaderRoute: typeof AuthCallbackRouteImport
+      parentRoute: typeof AuthRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/system-health': {
+      id: '/admin/system-health'
+      path: '/system-health'
+      fullPath: '/admin/system-health'
+      preLoaderRoute: typeof AdminSystemHealthRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/site-editor': {
+      id: '/admin/site-editor'
+      path: '/site-editor'
+      fullPath: '/admin/site-editor'
+      preLoaderRoute: typeof AdminSiteEditorRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/site': {
+      id: '/admin/site'
+      path: '/site'
+      fullPath: '/admin/site'
+      preLoaderRoute: typeof AdminSiteRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/short-notes': {
+      id: '/admin/short-notes'
+      path: '/short-notes'
+      fullPath: '/admin/short-notes'
+      preLoaderRoute: typeof AdminShortNotesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/routine-manager': {
+      id: '/admin/routine-manager'
+      path: '/routine-manager'
+      fullPath: '/admin/routine-manager'
+      preLoaderRoute: typeof AdminRoutineManagerRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/quiz': {
+      id: '/admin/quiz'
+      path: '/quiz'
+      fullPath: '/admin/quiz'
+      preLoaderRoute: typeof AdminQuizRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/question-bank': {
+      id: '/admin/question-bank'
+      path: '/question-bank'
+      fullPath: '/admin/question-bank'
+      preLoaderRoute: typeof AdminQuestionBankRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/permissions': {
+      id: '/admin/permissions'
+      path: '/permissions'
+      fullPath: '/admin/permissions'
+      preLoaderRoute: typeof AdminPermissionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/notifications': {
+      id: '/admin/notifications'
+      path: '/notifications'
+      fullPath: '/admin/notifications'
+      preLoaderRoute: typeof AdminNotificationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/mock-test': {
+      id: '/admin/mock-test'
+      path: '/mock-test'
+      fullPath: '/admin/mock-test'
+      preLoaderRoute: typeof AdminMockTestRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/mcq': {
+      id: '/admin/mcq'
+      path: '/mcq'
+      fullPath: '/admin/mcq'
+      preLoaderRoute: typeof AdminMcqRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/live-chat': {
+      id: '/admin/live-chat'
+      path: '/live-chat'
+      fullPath: '/admin/live-chat'
+      preLoaderRoute: typeof AdminLiveChatRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/flash-cards': {
+      id: '/admin/flash-cards'
+      path: '/flash-cards'
+      fullPath: '/admin/flash-cards'
+      preLoaderRoute: typeof AdminFlashCardsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/exam-batch': {
+      id: '/admin/exam-batch'
+      path: '/exam-batch'
+      fullPath: '/admin/exam-batch'
+      preLoaderRoute: typeof AdminExamBatchRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/database': {
+      id: '/admin/database'
+      path: '/database'
+      fullPath: '/admin/database'
+      preLoaderRoute: typeof AdminDatabaseRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/classes': {
+      id: '/admin/classes'
+      path: '/classes'
+      fullPath: '/admin/classes'
+      preLoaderRoute: typeof AdminClassesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/broadcasts': {
+      id: '/admin/broadcasts'
+      path: '/broadcasts'
+      fullPath: '/admin/broadcasts'
+      preLoaderRoute: typeof AdminBroadcastsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/blog': {
+      id: '/admin/blog'
+      path: '/blog'
+      fullPath: '/admin/blog'
+      preLoaderRoute: typeof AdminBlogRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/academic-manager': {
+      id: '/admin/academic-manager'
+      path: '/academic-manager'
+      fullPath: '/admin/academic-manager'
+      preLoaderRoute: typeof AdminAcademicManagerRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/_student/wrong-questions': {
+      id: '/_student/wrong-questions'
+      path: '/wrong-questions'
+      fullPath: '/wrong-questions'
+      preLoaderRoute: typeof StudentWrongQuestionsRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/study-routine': {
+      id: '/_student/study-routine'
+      path: '/study-routine'
+      fullPath: '/study-routine'
+      preLoaderRoute: typeof StudentStudyRoutineRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/short-notes': {
+      id: '/_student/short-notes'
+      path: '/short-notes'
+      fullPath: '/short-notes'
+      preLoaderRoute: typeof StudentShortNotesRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/quiz': {
+      id: '/_student/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof StudentQuizRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/qns-bank': {
+      id: '/_student/qns-bank'
+      path: '/qns-bank'
+      fullPath: '/qns-bank'
+      preLoaderRoute: typeof StudentQnsBankRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/profile': {
+      id: '/_student/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof StudentProfileRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/notifications': {
+      id: '/_student/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof StudentNotificationsRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/mock-test': {
+      id: '/_student/mock-test'
+      path: '/mock-test'
+      fullPath: '/mock-test'
+      preLoaderRoute: typeof StudentMockTestRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/mcq-practice': {
+      id: '/_student/mcq-practice'
+      path: '/mcq-practice'
+      fullPath: '/mcq-practice'
+      preLoaderRoute: typeof StudentMcqPracticeRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/flash-cards': {
+      id: '/_student/flash-cards'
+      path: '/flash-cards'
+      fullPath: '/flash-cards'
+      preLoaderRoute: typeof StudentFlashCardsRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/exam-batch-take': {
+      id: '/_student/exam-batch-take'
+      path: '/exam-batch-take'
+      fullPath: '/exam-batch-take'
+      preLoaderRoute: typeof StudentExamBatchTakeRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/exam-batch': {
+      id: '/_student/exam-batch'
+      path: '/exam-batch'
+      fullPath: '/exam-batch'
+      preLoaderRoute: typeof StudentExamBatchRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/dashboard': {
+      id: '/_student/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof StudentDashboardRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/daily-progress': {
+      id: '/_student/daily-progress'
+      path: '/daily-progress'
+      fullPath: '/daily-progress'
+      preLoaderRoute: typeof StudentDailyProgressRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/custom-exam': {
+      id: '/_student/custom-exam'
+      path: '/custom-exam'
+      fullPath: '/custom-exam'
+      preLoaderRoute: typeof StudentCustomExamRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/classes': {
+      id: '/_student/classes'
+      path: '/classes'
+      fullPath: '/classes'
+      preLoaderRoute: typeof StudentClassesRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/bookmarks': {
+      id: '/_student/bookmarks'
+      path: '/bookmarks'
+      fullPath: '/bookmarks'
+      preLoaderRoute: typeof StudentBookmarksRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/admin/users/': {
+      id: '/admin/users/'
+      path: '/'
+      fullPath: '/admin/users/'
+      preLoaderRoute: typeof AdminUsersIndexRouteImport
+      parentRoute: typeof AdminUsersRoute
+    }
+    '/admin/exam-batch/': {
+      id: '/admin/exam-batch/'
+      path: '/'
+      fullPath: '/admin/exam-batch/'
+      preLoaderRoute: typeof AdminExamBatchIndexRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/_student/exam-batch/': {
+      id: '/_student/exam-batch/'
+      path: '/'
+      fullPath: '/exam-batch/'
+      preLoaderRoute: typeof StudentExamBatchIndexRouteImport
+      parentRoute: typeof StudentExamBatchRoute
+    }
+    '/api/public/health': {
+      id: '/api/public/health'
+      path: '/api/public/health'
+      fullPath: '/api/public/health'
+      preLoaderRoute: typeof ApiPublicHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/chat-cleanup': {
+      id: '/api/public/chat-cleanup'
+      path: '/api/public/chat-cleanup'
+      fullPath: '/api/public/chat-cleanup'
+      preLoaderRoute: typeof ApiPublicChatCleanupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/users/list': {
+      id: '/admin/users/list'
+      path: '/list'
+      fullPath: '/admin/users/list'
+      preLoaderRoute: typeof AdminUsersListRouteImport
+      parentRoute: typeof AdminUsersRoute
+    }
+    '/admin/users/analytics': {
+      id: '/admin/users/analytics'
+      path: '/analytics'
+      fullPath: '/admin/users/analytics'
+      preLoaderRoute: typeof AdminUsersAnalyticsRouteImport
+      parentRoute: typeof AdminUsersRoute
+    }
+    '/admin/exam-batch/verification-preview': {
+      id: '/admin/exam-batch/verification-preview'
+      path: '/verification-preview'
+      fullPath: '/admin/exam-batch/verification-preview'
+      preLoaderRoute: typeof AdminExamBatchVerificationPreviewRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/verification-content': {
+      id: '/admin/exam-batch/verification-content'
+      path: '/verification-content'
+      fullPath: '/admin/exam-batch/verification-content'
+      preLoaderRoute: typeof AdminExamBatchVerificationContentRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/subject-progress': {
+      id: '/admin/exam-batch/subject-progress'
+      path: '/subject-progress'
+      fullPath: '/admin/exam-batch/subject-progress'
+      preLoaderRoute: typeof AdminExamBatchSubjectProgressRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/subject-manager': {
+      id: '/admin/exam-batch/subject-manager'
+      path: '/subject-manager'
+      fullPath: '/admin/exam-batch/subject-manager'
+      preLoaderRoute: typeof AdminExamBatchSubjectManagerRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/students': {
+      id: '/admin/exam-batch/students'
+      path: '/students'
+      fullPath: '/admin/exam-batch/students'
+      preLoaderRoute: typeof AdminExamBatchStudentsRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/settings': {
+      id: '/admin/exam-batch/settings'
+      path: '/settings'
+      fullPath: '/admin/exam-batch/settings'
+      preLoaderRoute: typeof AdminExamBatchSettingsRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/sessions': {
+      id: '/admin/exam-batch/sessions'
+      path: '/sessions'
+      fullPath: '/admin/exam-batch/sessions'
+      preLoaderRoute: typeof AdminExamBatchSessionsRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/mcqs': {
+      id: '/admin/exam-batch/mcqs'
+      path: '/mcqs'
+      fullPath: '/admin/exam-batch/mcqs'
+      preLoaderRoute: typeof AdminExamBatchMcqsRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/leaderboard': {
+      id: '/admin/exam-batch/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/admin/exam-batch/leaderboard'
+      preLoaderRoute: typeof AdminExamBatchLeaderboardRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/exams': {
+      id: '/admin/exam-batch/exams'
+      path: '/exams'
+      fullPath: '/admin/exam-batch/exams'
+      preLoaderRoute: typeof AdminExamBatchExamsRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/enrollment': {
+      id: '/admin/exam-batch/enrollment'
+      path: '/enrollment'
+      fullPath: '/admin/exam-batch/enrollment'
+      preLoaderRoute: typeof AdminExamBatchEnrollmentRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/downloads': {
+      id: '/admin/exam-batch/downloads'
+      path: '/downloads'
+      fullPath: '/admin/exam-batch/downloads'
+      preLoaderRoute: typeof AdminExamBatchDownloadsRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/countdown': {
+      id: '/admin/exam-batch/countdown'
+      path: '/countdown'
+      fullPath: '/admin/exam-batch/countdown'
+      preLoaderRoute: typeof AdminExamBatchCountdownRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/attendance': {
+      id: '/admin/exam-batch/attendance'
+      path: '/attendance'
+      fullPath: '/admin/exam-batch/attendance'
+      preLoaderRoute: typeof AdminExamBatchAttendanceRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/analytics': {
+      id: '/admin/exam-batch/analytics'
+      path: '/analytics'
+      fullPath: '/admin/exam-batch/analytics'
+      preLoaderRoute: typeof AdminExamBatchAnalyticsRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/admin/exam-batch/academic': {
+      id: '/admin/exam-batch/academic'
+      path: '/academic'
+      fullPath: '/admin/exam-batch/academic'
+      preLoaderRoute: typeof AdminExamBatchAcademicRouteImport
+      parentRoute: typeof AdminExamBatchRoute
+    }
+    '/_student/exam-batch/upcoming': {
+      id: '/_student/exam-batch/upcoming'
+      path: '/upcoming'
+      fullPath: '/exam-batch/upcoming'
+      preLoaderRoute: typeof StudentExamBatchUpcomingRouteImport
+      parentRoute: typeof StudentExamBatchRoute
+    }
+    '/_student/exam-batch/subjects': {
+      id: '/_student/exam-batch/subjects'
+      path: '/subjects'
+      fullPath: '/exam-batch/subjects'
+      preLoaderRoute: typeof StudentExamBatchSubjectsRouteImport
+      parentRoute: typeof StudentExamBatchRoute
+    }
+    '/_student/exam-batch/sessions': {
+      id: '/_student/exam-batch/sessions'
+      path: '/sessions'
+      fullPath: '/exam-batch/sessions'
+      preLoaderRoute: typeof StudentExamBatchSessionsRouteImport
+      parentRoute: typeof StudentExamBatchRoute
+    }
+    '/_student/exam-batch/progress': {
+      id: '/_student/exam-batch/progress'
+      path: '/progress'
+      fullPath: '/exam-batch/progress'
+      preLoaderRoute: typeof StudentExamBatchProgressRouteImport
+      parentRoute: typeof StudentExamBatchRoute
+    }
+    '/_student/exam-batch/pending': {
+      id: '/_student/exam-batch/pending'
+      path: '/pending'
+      fullPath: '/exam-batch/pending'
+      preLoaderRoute: typeof StudentExamBatchPendingRouteImport
+      parentRoute: typeof StudentExamBatchRoute
+    }
+    '/_student/exam-batch/leaderboard': {
+      id: '/_student/exam-batch/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/exam-batch/leaderboard'
+      preLoaderRoute: typeof StudentExamBatchLeaderboardRouteImport
+      parentRoute: typeof StudentExamBatchRoute
+    }
+    '/_student/exam-batch/history': {
+      id: '/_student/exam-batch/history'
+      path: '/history'
+      fullPath: '/exam-batch/history'
+      preLoaderRoute: typeof StudentExamBatchHistoryRouteImport
+      parentRoute: typeof StudentExamBatchRoute
+    }
+    '/_student/exam-batch/enrollment': {
+      id: '/_student/exam-batch/enrollment'
+      path: '/enrollment'
+      fullPath: '/exam-batch/enrollment'
+      preLoaderRoute: typeof StudentExamBatchEnrollmentRouteImport
+      parentRoute: typeof StudentExamBatchRoute
+    }
+    '/_student/exam-batch/dashboard': {
+      id: '/_student/exam-batch/dashboard'
+      path: '/dashboard'
+      fullPath: '/exam-batch/dashboard'
+      preLoaderRoute: typeof StudentExamBatchDashboardRouteImport
+      parentRoute: typeof StudentExamBatchRoute
+    }
+    '/_student/exam-batch/available': {
+      id: '/_student/exam-batch/available'
+      path: '/available'
+      fullPath: '/exam-batch/available'
+      preLoaderRoute: typeof StudentExamBatchAvailableRouteImport
+      parentRoute: typeof StudentExamBatchRoute
+    }
+    '/_student/exam-batch/leaderboard/preview': {
+      id: '/_student/exam-batch/leaderboard/preview'
+      path: '/preview'
+      fullPath: '/exam-batch/leaderboard/preview'
+      preLoaderRoute: typeof StudentExamBatchLeaderboardPreviewRouteImport
+      parentRoute: typeof StudentExamBatchLeaderboardRoute
+    }
   }
 }
 
+interface StudentExamBatchLeaderboardRouteChildren {
+  StudentExamBatchLeaderboardPreviewRoute: typeof StudentExamBatchLeaderboardPreviewRoute
+}
+
+const StudentExamBatchLeaderboardRouteChildren: StudentExamBatchLeaderboardRouteChildren =
+  {
+    StudentExamBatchLeaderboardPreviewRoute:
+      StudentExamBatchLeaderboardPreviewRoute,
+  }
+
+const StudentExamBatchLeaderboardRouteWithChildren =
+  StudentExamBatchLeaderboardRoute._addFileChildren(
+    StudentExamBatchLeaderboardRouteChildren,
+  )
+
+interface StudentExamBatchRouteChildren {
+  StudentExamBatchAvailableRoute: typeof StudentExamBatchAvailableRoute
+  StudentExamBatchDashboardRoute: typeof StudentExamBatchDashboardRoute
+  StudentExamBatchEnrollmentRoute: typeof StudentExamBatchEnrollmentRoute
+  StudentExamBatchHistoryRoute: typeof StudentExamBatchHistoryRoute
+  StudentExamBatchLeaderboardRoute: typeof StudentExamBatchLeaderboardRouteWithChildren
+  StudentExamBatchPendingRoute: typeof StudentExamBatchPendingRoute
+  StudentExamBatchProgressRoute: typeof StudentExamBatchProgressRoute
+  StudentExamBatchSessionsRoute: typeof StudentExamBatchSessionsRoute
+  StudentExamBatchSubjectsRoute: typeof StudentExamBatchSubjectsRoute
+  StudentExamBatchUpcomingRoute: typeof StudentExamBatchUpcomingRoute
+  StudentExamBatchIndexRoute: typeof StudentExamBatchIndexRoute
+}
+
+const StudentExamBatchRouteChildren: StudentExamBatchRouteChildren = {
+  StudentExamBatchAvailableRoute: StudentExamBatchAvailableRoute,
+  StudentExamBatchDashboardRoute: StudentExamBatchDashboardRoute,
+  StudentExamBatchEnrollmentRoute: StudentExamBatchEnrollmentRoute,
+  StudentExamBatchHistoryRoute: StudentExamBatchHistoryRoute,
+  StudentExamBatchLeaderboardRoute:
+    StudentExamBatchLeaderboardRouteWithChildren,
+  StudentExamBatchPendingRoute: StudentExamBatchPendingRoute,
+  StudentExamBatchProgressRoute: StudentExamBatchProgressRoute,
+  StudentExamBatchSessionsRoute: StudentExamBatchSessionsRoute,
+  StudentExamBatchSubjectsRoute: StudentExamBatchSubjectsRoute,
+  StudentExamBatchUpcomingRoute: StudentExamBatchUpcomingRoute,
+  StudentExamBatchIndexRoute: StudentExamBatchIndexRoute,
+}
+
+const StudentExamBatchRouteWithChildren =
+  StudentExamBatchRoute._addFileChildren(StudentExamBatchRouteChildren)
+
+interface StudentRouteChildren {
+  StudentBookmarksRoute: typeof StudentBookmarksRoute
+  StudentClassesRoute: typeof StudentClassesRoute
+  StudentCustomExamRoute: typeof StudentCustomExamRoute
+  StudentDailyProgressRoute: typeof StudentDailyProgressRoute
+  StudentDashboardRoute: typeof StudentDashboardRoute
+  StudentExamBatchRoute: typeof StudentExamBatchRouteWithChildren
+  StudentExamBatchTakeRoute: typeof StudentExamBatchTakeRoute
+  StudentFlashCardsRoute: typeof StudentFlashCardsRoute
+  StudentMcqPracticeRoute: typeof StudentMcqPracticeRoute
+  StudentMockTestRoute: typeof StudentMockTestRoute
+  StudentNotificationsRoute: typeof StudentNotificationsRoute
+  StudentProfileRoute: typeof StudentProfileRoute
+  StudentQnsBankRoute: typeof StudentQnsBankRoute
+  StudentQuizRoute: typeof StudentQuizRoute
+  StudentShortNotesRoute: typeof StudentShortNotesRoute
+  StudentStudyRoutineRoute: typeof StudentStudyRoutineRoute
+  StudentWrongQuestionsRoute: typeof StudentWrongQuestionsRoute
+}
+
+const StudentRouteChildren: StudentRouteChildren = {
+  StudentBookmarksRoute: StudentBookmarksRoute,
+  StudentClassesRoute: StudentClassesRoute,
+  StudentCustomExamRoute: StudentCustomExamRoute,
+  StudentDailyProgressRoute: StudentDailyProgressRoute,
+  StudentDashboardRoute: StudentDashboardRoute,
+  StudentExamBatchRoute: StudentExamBatchRouteWithChildren,
+  StudentExamBatchTakeRoute: StudentExamBatchTakeRoute,
+  StudentFlashCardsRoute: StudentFlashCardsRoute,
+  StudentMcqPracticeRoute: StudentMcqPracticeRoute,
+  StudentMockTestRoute: StudentMockTestRoute,
+  StudentNotificationsRoute: StudentNotificationsRoute,
+  StudentProfileRoute: StudentProfileRoute,
+  StudentQnsBankRoute: StudentQnsBankRoute,
+  StudentQuizRoute: StudentQuizRoute,
+  StudentShortNotesRoute: StudentShortNotesRoute,
+  StudentStudyRoutineRoute: StudentStudyRoutineRoute,
+  StudentWrongQuestionsRoute: StudentWrongQuestionsRoute,
+}
+
+const StudentRouteWithChildren =
+  StudentRoute._addFileChildren(StudentRouteChildren)
+
+interface AdminExamBatchRouteChildren {
+  AdminExamBatchAcademicRoute: typeof AdminExamBatchAcademicRoute
+  AdminExamBatchAnalyticsRoute: typeof AdminExamBatchAnalyticsRoute
+  AdminExamBatchAttendanceRoute: typeof AdminExamBatchAttendanceRoute
+  AdminExamBatchCountdownRoute: typeof AdminExamBatchCountdownRoute
+  AdminExamBatchDownloadsRoute: typeof AdminExamBatchDownloadsRoute
+  AdminExamBatchEnrollmentRoute: typeof AdminExamBatchEnrollmentRoute
+  AdminExamBatchExamsRoute: typeof AdminExamBatchExamsRoute
+  AdminExamBatchLeaderboardRoute: typeof AdminExamBatchLeaderboardRoute
+  AdminExamBatchMcqsRoute: typeof AdminExamBatchMcqsRoute
+  AdminExamBatchSessionsRoute: typeof AdminExamBatchSessionsRoute
+  AdminExamBatchSettingsRoute: typeof AdminExamBatchSettingsRoute
+  AdminExamBatchStudentsRoute: typeof AdminExamBatchStudentsRoute
+  AdminExamBatchSubjectManagerRoute: typeof AdminExamBatchSubjectManagerRoute
+  AdminExamBatchSubjectProgressRoute: typeof AdminExamBatchSubjectProgressRoute
+  AdminExamBatchVerificationContentRoute: typeof AdminExamBatchVerificationContentRoute
+  AdminExamBatchVerificationPreviewRoute: typeof AdminExamBatchVerificationPreviewRoute
+  AdminExamBatchIndexRoute: typeof AdminExamBatchIndexRoute
+}
+
+const AdminExamBatchRouteChildren: AdminExamBatchRouteChildren = {
+  AdminExamBatchAcademicRoute: AdminExamBatchAcademicRoute,
+  AdminExamBatchAnalyticsRoute: AdminExamBatchAnalyticsRoute,
+  AdminExamBatchAttendanceRoute: AdminExamBatchAttendanceRoute,
+  AdminExamBatchCountdownRoute: AdminExamBatchCountdownRoute,
+  AdminExamBatchDownloadsRoute: AdminExamBatchDownloadsRoute,
+  AdminExamBatchEnrollmentRoute: AdminExamBatchEnrollmentRoute,
+  AdminExamBatchExamsRoute: AdminExamBatchExamsRoute,
+  AdminExamBatchLeaderboardRoute: AdminExamBatchLeaderboardRoute,
+  AdminExamBatchMcqsRoute: AdminExamBatchMcqsRoute,
+  AdminExamBatchSessionsRoute: AdminExamBatchSessionsRoute,
+  AdminExamBatchSettingsRoute: AdminExamBatchSettingsRoute,
+  AdminExamBatchStudentsRoute: AdminExamBatchStudentsRoute,
+  AdminExamBatchSubjectManagerRoute: AdminExamBatchSubjectManagerRoute,
+  AdminExamBatchSubjectProgressRoute: AdminExamBatchSubjectProgressRoute,
+  AdminExamBatchVerificationContentRoute:
+    AdminExamBatchVerificationContentRoute,
+  AdminExamBatchVerificationPreviewRoute:
+    AdminExamBatchVerificationPreviewRoute,
+  AdminExamBatchIndexRoute: AdminExamBatchIndexRoute,
+}
+
+const AdminExamBatchRouteWithChildren = AdminExamBatchRoute._addFileChildren(
+  AdminExamBatchRouteChildren,
+)
+
+interface AdminUsersRouteChildren {
+  AdminUsersAnalyticsRoute: typeof AdminUsersAnalyticsRoute
+  AdminUsersListRoute: typeof AdminUsersListRoute
+  AdminUsersIndexRoute: typeof AdminUsersIndexRoute
+}
+
+const AdminUsersRouteChildren: AdminUsersRouteChildren = {
+  AdminUsersAnalyticsRoute: AdminUsersAnalyticsRoute,
+  AdminUsersListRoute: AdminUsersListRoute,
+  AdminUsersIndexRoute: AdminUsersIndexRoute,
+}
+
+const AdminUsersRouteWithChildren = AdminUsersRoute._addFileChildren(
+  AdminUsersRouteChildren,
+)
+
+interface AdminRouteChildren {
+  AdminAcademicManagerRoute: typeof AdminAcademicManagerRoute
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminBlogRoute: typeof AdminBlogRoute
+  AdminBroadcastsRoute: typeof AdminBroadcastsRoute
+  AdminClassesRoute: typeof AdminClassesRoute
+  AdminDatabaseRoute: typeof AdminDatabaseRoute
+  AdminExamBatchRoute: typeof AdminExamBatchRouteWithChildren
+  AdminFlashCardsRoute: typeof AdminFlashCardsRoute
+  AdminLiveChatRoute: typeof AdminLiveChatRoute
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdminMcqRoute: typeof AdminMcqRoute
+  AdminMockTestRoute: typeof AdminMockTestRoute
+  AdminNotificationsRoute: typeof AdminNotificationsRoute
+  AdminPermissionsRoute: typeof AdminPermissionsRoute
+  AdminQuestionBankRoute: typeof AdminQuestionBankRoute
+  AdminQuizRoute: typeof AdminQuizRoute
+  AdminRoutineManagerRoute: typeof AdminRoutineManagerRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminShortNotesRoute: typeof AdminShortNotesRoute
+  AdminSiteRoute: typeof AdminSiteRoute
+  AdminSiteEditorRoute: typeof AdminSiteEditorRoute
+  AdminSystemHealthRoute: typeof AdminSystemHealthRoute
+  AdminUsersRoute: typeof AdminUsersRouteWithChildren
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAcademicManagerRoute: AdminAcademicManagerRoute,
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminBlogRoute: AdminBlogRoute,
+  AdminBroadcastsRoute: AdminBroadcastsRoute,
+  AdminClassesRoute: AdminClassesRoute,
+  AdminDatabaseRoute: AdminDatabaseRoute,
+  AdminExamBatchRoute: AdminExamBatchRouteWithChildren,
+  AdminFlashCardsRoute: AdminFlashCardsRoute,
+  AdminLiveChatRoute: AdminLiveChatRoute,
+  AdminLoginRoute: AdminLoginRoute,
+  AdminMcqRoute: AdminMcqRoute,
+  AdminMockTestRoute: AdminMockTestRoute,
+  AdminNotificationsRoute: AdminNotificationsRoute,
+  AdminPermissionsRoute: AdminPermissionsRoute,
+  AdminQuestionBankRoute: AdminQuestionBankRoute,
+  AdminQuizRoute: AdminQuizRoute,
+  AdminRoutineManagerRoute: AdminRoutineManagerRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminShortNotesRoute: AdminShortNotesRoute,
+  AdminSiteRoute: AdminSiteRoute,
+  AdminSiteEditorRoute: AdminSiteEditorRoute,
+  AdminSystemHealthRoute: AdminSystemHealthRoute,
+  AdminUsersRoute: AdminUsersRouteWithChildren,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface AuthRouteChildren {
+  AuthCallbackRoute: typeof AuthCallbackRoute
+  AuthConfirmRoute: typeof AuthConfirmRoute
+  AuthIndexRoute: typeof AuthIndexRoute
+}
+
+const AuthRouteChildren: AuthRouteChildren = {
+  AuthCallbackRoute: AuthCallbackRoute,
+  AuthConfirmRoute: AuthConfirmRoute,
+  AuthIndexRoute: AuthIndexRoute,
+}
+
+const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  StudentRoute: StudentRouteWithChildren,
+  AdminRoute: AdminRouteWithChildren,
+  AuthRoute: AuthRouteWithChildren,
+  BlogRoute: BlogRouteWithChildren,
+  CheckEmailRoute: CheckEmailRoute,
+  CookiesRoute: CookiesRoute,
+  EmailVerifiedRoute: EmailVerifiedRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  LoginRoute: LoginRoute,
+  PrivacyRoute: PrivacyRoute,
+  RegisterRoute: RegisterRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  SecurityRoute: SecurityRoute,
+  SignupRoute: SignupRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
+  ApiPublicChatCleanupRoute: ApiPublicChatCleanupRoute,
+  ApiPublicHealthRoute: ApiPublicHealthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
