@@ -138,7 +138,6 @@ export function CreateRoutineDialog({
         level_code: initial.level_code ?? null,
         subject_id: initial.subject_id ?? null,
         chapter_id: initial.chapter_id ?? null,
-        task_title: initial.task_title ?? initial.name ?? "",
         task_type:
           (initial.task_type as CreateRoutinePayload["task_type"]) ?? "study",
         study_target:
@@ -147,7 +146,6 @@ export function CreateRoutineDialog({
         estimated_minutes: initial.estimated_minutes ?? 60,
         priority:
           (initial.priority as CreateRoutinePayload["priority"]) ?? "medium",
-        reminder_minutes: initial.reminder_minutes ?? null,
         default_status:
           (initial.default_status as CreateRoutinePayload["default_status"]) ??
           "pending",
@@ -204,7 +202,7 @@ export function CreateRoutineDialog({
   });
 
   const canSubmit = useMemo(() => {
-    if (!form.name.trim() || !form.task_title.trim()) return false;
+    if (!form.name.trim()) return false;
     if (form.schedule_mode === "weekdays" && form.weekdays.length === 0)
       return false;
     if (form.schedule_mode === "date_range" && !form.end_date) return false;
@@ -214,7 +212,6 @@ export function CreateRoutineDialog({
   function submit() {
     setError(null);
     if (!form.name.trim()) return setError("Routine title is required.");
-    if (!form.task_title.trim()) return setError("Task name is required.");
     if (form.schedule_mode === "weekdays" && form.weekdays.length === 0)
       return setError("Pick at least one weekday.");
     if (form.schedule_mode === "date_range") {
