@@ -227,6 +227,42 @@ CREATE UNIQUE INDEX IF NOT EXISTS study_routine_tasks_occurrence_uniq
 
 
 -- ---------------------------------------------------------------------
+-- 4b. Cascade routine → tasks
+--
+-- Earlier drafts declared the routine_id FK as ON DELETE SET NULL, which
+-- left orphan task rows (routine_id = NULL) every time a student deleted
+-- a routine. Task history for a deleted routine is not meaningful on its
+-- own, and it breaks analytics, so we drop the old FK (whatever its name)
+-- and re-add it with ON DELETE CASCADE. Idempotent: safe to re-run.
+-- ---------------------------------------------------------------------
+DO $$
+DECLARE
+  fk_name text;
+BEGIN
+  SELECT conname INTO fk_name
+  FROM pg_constraint
+  WHERE conrelid = 'public.study_routine_tasks'::regclass
+    AND contype  = 'f'
+    AND confrelid = 'public.study_routines'::regclass
+  LIMIT 1;
+
+  IF fk_name IS NOT NULL THEN
+    EXECUTE format(
+      'ALTER TABLE public.study_routine_tasks DROP CONSTRAINT %I',
+      fk_name
+    );
+  END IF;
+
+  ALTER TABLE public.study_routine_tasks
+    ADD CONSTRAINT study_routine_tasks_routine_id_fkey
+    FOREIGN KEY (routine_id)
+    REFERENCES public.study_routines(id)
+    ON DELETE CASCADE;
+END $$;
+
+
+
+-- ---------------------------------------------------------------------
 -- 5. Supporting indexes (all idempotent)
 -- ---------------------------------------------------------------------
 CREATE INDEX IF NOT EXISTS study_routines_user_idx
