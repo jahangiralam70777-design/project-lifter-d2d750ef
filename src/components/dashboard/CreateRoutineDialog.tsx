@@ -245,6 +245,8 @@ export function CreateRoutineDialog({
       if (form.end_date < form.start_date)
         return setError("End date must be on or after start date.");
     }
+    if (form.end_time && form.start_time && form.end_time <= form.start_time)
+      return setError("End time must be after start time.");
     onSave(form);
   }
 
