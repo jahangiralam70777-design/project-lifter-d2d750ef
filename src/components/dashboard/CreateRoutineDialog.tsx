@@ -51,12 +51,10 @@ export type CreateRoutinePayload = {
   level_code: string | null;
   subject_id: string | null;
   chapter_id: string | null;
-  task_title: string;
   task_type: "study" | "mcq" | "quiz" | "mock" | "revision" | "custom";
   study_target: "mcq" | "reading" | "time" | "custom";
   estimated_minutes: number;
   priority: "low" | "medium" | "high";
-  reminder_minutes: number | null;
   default_status: "pending" | "in_progress" | "completed";
   due_date: string | null;
   schedule_mode: ScheduleMode;
@@ -93,13 +91,10 @@ function defaults(): CreateRoutinePayload {
     description: null,
     level_code: null,
     subject_id: null,
-    chapter_id: null,
-    task_title: "",
     task_type: "study",
     study_target: "time",
     estimated_minutes: 60,
     priority: "medium",
-    reminder_minutes: null,
     default_status: "pending",
     due_date: null,
     schedule_mode: "daily",
@@ -109,6 +104,7 @@ function defaults(): CreateRoutinePayload {
     start_date: todayISO(),
     end_date: null,
     start_time: "09:00",
+    chapter_id: null,
   };
 }
 
